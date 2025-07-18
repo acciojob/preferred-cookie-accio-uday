@@ -1,11 +1,9 @@
 //your JS code here. If required.
-//
 function setCookie(name, value, days = 365) {
 	const expires = new Date(Date.now() + days * 864e5).toUTCString();
 	document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
 }
 
-// 
 function getCookie(name) {
 	return document.cookie.split('; ').reduce((r, v) => {
 		const [key, val] = v.split('=');
@@ -13,7 +11,6 @@ function getCookie(name) {
 	}, '');
 }
 
-//
 function applyPreferences() {
 	const savedSize = getCookie('fontsize');
 	const savedColor = getCookie('fontcolor');
@@ -28,7 +25,6 @@ function applyPreferences() {
 	}
 }
 
-//
 document.getElementById('settingsForm').addEventListener('submit', function (e) {
 	e.preventDefault();
 
@@ -36,7 +32,7 @@ document.getElementById('settingsForm').addEventListener('submit', function (e) 
 	const fontColor = document.getElementById('fontcolor').value;
 
 	setCookie('fontsize', fontSize);
-	setCookie('fontColor', fontColor);
+	setCookie('fontcolor', fontColor);
 
 	document.documentElement.style.setProperty('--fontsize', `${fontSize}px`);
 	document.documentElement.style.setProperty('--fontcolor', fontColor);
@@ -44,30 +40,3 @@ document.getElementById('settingsForm').addEventListener('submit', function (e) 
 
 //
 applyPreferences();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
